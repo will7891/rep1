@@ -1,0 +1,25 @@
+// base stats for all troops
+Supp	Attack: 10   ,Defense: 3  ,Life: 200   ,Speed: 180  ,Range: 10   ,Load: 200
+Mili	Attack: 100  ,Defense: 13 ,Life: 400   ,Speed: 200  ,Range: 20   ,Load: 20
+Scout	Attack: 6    ,Defense: 1  ,Life: 20    ,Speed: 3000 ,Range: 20   ,Load: 5
+Pike	Attack: 300  ,Defense: 33 ,Life: 600   ,Speed: 300  ,Range: 50   ,Load: 40
+Sword	Attack: 200  ,Defense: 63 ,Life: 700   ,Speed: 275  ,Range: 30   ,Load: 30
+Arch	Attack: 240  ,Defense: 25 ,Life: 500   ,Speed: 250  ,Range: 1200 ,Load: 25
+Cav	Attack: 500  ,Defense: 45 ,Life: 1000  ,Speed: 1000 ,Range: 100  ,Load: 100
+Heavy	Attack: 700  ,Defense: 87 ,Life: 2000  ,Speed: 750  ,Range: 80   ,Load: 80
+Cart	Attack: 20   ,Defense: 15 ,Life: 1400  ,Speed: 150  ,Range: 10   ,Load: 5000
+Ball	Attack: 900  ,Defense: 40 ,Life: 640   ,Speed: 100  ,Range: 1400 ,Load: 35
+Ram	Attack: 500  ,Defense: 40 ,Life: 10000 ,Speed: 120  ,Range: 600  ,Load: 45
+Cat	Attack: 1200 ,Defense: 50 ,Life: 960   ,Speed: 80   ,Range: 1500 ,Load: 75
+Blood	Attack: 1300 ,Defense: 45 ,Life: 2100  ,Speed: 900  ,Range: 150  ,Load: 250
+Exec	Attack: 1700 ,Defense: 70 ,Life: 4200  ,Speed: 500  ,Range: 120  ,Load: 500
+SeigeW	Attack: 200  ,Defense: 140,Life: 8400  ,Speed: 775  ,Range: 120  ,Load: 500
+FlameA	Attack: 1700 ,Defense: 40 ,Life: 800   ,Speed: 140  ,Range: 1600 ,Load: 50
+Hussar	Attack: 1050 ,Defense: 130,Life: 2800  ,Speed: 1150 ,Range: 120  ,Load: 100
+Halbdr	Attack: 1450 ,Defense: 82 ,Life: 2250  ,Speed: 525  ,Range: 85   ,Load: 90
+Onager	Attack: 1500 ,Defense: 50 ,Life: 1050  ,Speed: 140  ,Range: 1550 ,Load: 80
+Sabot	Attack: 1100 ,Defense: 15 ,Life: 550   ,Speed: 245  ,Range: 75   ,Load: 15
+Shield	Attack: 400  ,Defense: 20 ,Life: 300   ,Speed: 225  ,Range: 15   ,Load: 5
+SoulSt	Attack: 600  ,Defense: 80 ,Life: 2500  ,Speed: 600  ,Range: 5    ,Load: 15
+PlagDr	Attack: 200  ,Defense: 30 ,Life: 1800  ,Speed: 260  ,Range: 900  ,Load: 15
+Toxic	Attack: 250  ,Defense: 20 ,Life: 1000  ,Speed: 190  ,Range: 1100 ,Load: 10
