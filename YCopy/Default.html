@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+   <style type="text/css">
+        /************************ GENERIC + ALL-SEEING ***********************/
+        .main {padding: 0; margin: 0;}
+        body
+        {
+            color: Black;
+            background-color: rgb(230, 230, 230);/*rgb(250, 250, 252); true color*/            
+        }
+        a
+        {
+            text-decoration: none;
+        }
+        img
+        {
+            width: 15px;
+            height: 15px;
+        }
+        input
+        {
+            color: Gray;
+        }
+        .box
+        {
+            border: 1px solid Gray; 
+            background-color: White;  
+            width: 100%;
+        }        
+        .wrapper
+        {
+            padding: 10px 0px 15px 10px;
+            width: 99%;
+        }
+        
+        /************************* HEADER **************************/
+        #header
+        {
+            background-color: rgb(250, 250, 252); /* inherit makes it see-through */
+            width: 100%;
+            height: 100px;   
+            position: fixed;
+            top: -15px;
+            z-index: 1;                   
+        }
+        #nav
+        {
+            background-color: rgb(0, 0, 102);   
+            height: 20px; /*b/c will not stretch for ul*/
+        }
+        #nav ul
+        {
+            list-style-type: none;
+        }
+        #nav ul li
+        {
+            float: left;  
+            margin: 0 10px;  
+            color: White; /*for the 'More' option*/
+        }
+        #nav ul li a
+        {            
+            color: White;
+        }
+        #header .belowNav
+        {
+            color: rgb(62, 0, 108); 
+            clear: left; 
+            padding: 10px 0 20px 20px;
+        }
+        #searchInput
+        {
+            height: 2.2em;
+            width: 350px; 
+            margin-left:40px;
+            border: 2px solid rgb(48, 97, 207);
+            border-radius: 2px;
+        }
+        #searchButton
+        {
+            height: 2.5em;
+            width: 100px;
+            background-color: rgb(48, 97, 207); 
+            color: White; 
+            margin: auto;
+            border-radius: 5px;
+        }
+        
+        /******************************* MAIN DOCUMENT ******************************/
+        #belowHeader
+        {
+            position: relative;
+            top: 100px;
+        }
+        
+        /******************** SIDEBAR ******************/
+        #sidebar 
+        {
+            width:10%;
+            background-color: inherit;
+            font-size: 150%;
+            padding-left: 10px;
+        }
+        #sidebar ul 
+        {
+            list-style-type: none;
+            color: Purple;  
+            margin: 0; /*remove li indent*/
+            padding: 0;
+        }
+        #sidebar ul a img
+        {
+            width: 15px;
+            height: 15px;   
+            margin-right: 5px;
+        }
+        .advertisement img
+        {
+            padding-left: 30px;
+            width:50px;
+            height:30px;
+        }
+        .advertisement span
+        {
+            font-size: 0.7em;
+            line-height: 0.8em;
+        }
+        .advertisement a
+        {
+            color: Black;
+        }
+        
+        /*********************** MIDDLE CONTENT ********************/
+        #mainContent
+        {
+            background-color: Green;
+            width: 50%;
+            height: 100%;
+            margin: 0 20px;
+        }
+        .news_list_button
+        {
+            width:10%; 
+            height: 100%; 
+            border: 1px solid Grey;
+        }
+        #mainNews_list h1
+        {
+            font-size: 2.5em;
+            color: Blue;
+            padding: 25px 5px;
+        }
+         
+        /************************ RIGHT-SIDE CONTENT ********************/
+        #subContent
+        {
+            width:30%;
+            height: auto;
+            background-color: inherit;
+        }
+        .only_on_yahoo_item
+        {
+            margin-top: 7px;   
+        }
+        .only_on_yahoo_item img
+        {
+            width: 35px;
+            height: 35px;
+            margin-right: 10px;
+            float: left;
+        }
+        
+        #topStories .bottom ul
+        {
+            margin:0;
+            padding:0;
+        }
+        #topStories .bottom b
+        {
+            position: absolute; /*keeps text from wrapping underneath number*/
+        }
+        #topStories .bottom span
+        {
+            margin-left: 15px;
+            display: inline-block;
+        }
+        
+        /********************** WEATHER *********************/
+        #weather .wrapper
+        {
+             width:94%;
+             height:45px;
+        }
+        #weather_list ul li 
+        {
+            margin: 0;   
+        }
+        #weather_list div
+        {
+            float:left; 
+            width:27%; 
+            height:85px; 
+            margin:5px 0;
+            padding-left: 15px;      
+        }
+        #weather_list img
+        {
+            width:45px; 
+            height:45px;      
+        }
+        
+        /********************** FINANCE *********************/
+        #finance_stocks
+        {
+            text-align: left;
+            border-collapse: collapse;   
+            width: 95%;
+        }
+        #finance_stocks td
+        {            
+            padding-left: 5px;
+            border-bottom: 1px solid Gray;
+        }
+        
+        #finance_stocks img
+        {
+            width: 28px;
+            height: 30px;
+        }
+        #finance .col1
+        {
+            width: 40%;
+        }
+        #finance .col2
+        {
+            width: 25%;
+        }
+        #finance .col3
+        {
+            width: 9%;
+            padding: 0px;
+        }
+        #finance .col4
+        {
+            width: 20%;
+        }
+        
+        /********************** SPORTS *********************/
+        #sports_scores
+        {
+            width: 95%;      
+            border-collapse: collapse;
+            text-align:left;
+        }
+        #sports_scores tr
+        {
+            padding: 2px 0;
+        }
+        #sports_scores .row1
+        {
+            border-bottom: 1px solid Black;   
+        }
+        #sports_scores .colEnd
+        {
+            width: 20%;
+        }
+        #sports_scores .colImg
+        {
+            width: 30px;
+        }
+        #sports_scores .colTeam
+        {
+            width: 15%;
+        }
+        #sports_scores img
+        {
+            width: 30px;
+            height: 30px;   
+        }
+        #sports_scores .col1
+        {
+            color: Gray;
+        }
+        #sports_scores .col3
+        {
+            text-align: right;
+        }    
+        #sports_scores .col4
+        {
+            width: 5%;
+            text-align: center;
+        }
+        #sports_scores .col7
+        {
+            font-size: 0.7em;
+            color: Blue;
+            text-align: right;
+        }
+        
+        /*********************** FOOTER ******************/
+        #footer
+        {
+            width: 100%;
+            height: 80px;
+            margin: 0;
+        }
+        #footer .wrapper
+        {
+            padding: 10px 0 40px 10px;
+            width: 99%;
+        }
+        #footer .wrapper ul
+        {
+            list-style-type: none;           
+            padding: 0;
+        }
+        #footer .wrapper li
+        {
+            float: left;
+            margin: 0 15px 0 0;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div id="header">
+        <div id="nav">
+            <ul>
+                <li><a href="https://www.yahoo.com">Home</a></li>
+                <li><a href="">Mail</a></li>
+                <li><a href="https://answers.yahoo.com/">Answers</a></li>
+                <li><a href="https://groups.yahoo.com/neo">Group</a></li>
+                <li><a href="https://www.flickr.com/">Flickr</a></li>
+                <li><a href="https://www.tumblr.com/">Tumblr</a></li>
+                <li><a href="https://games.yahoo.com/">Games</a></li>
+                <li><a href="https://screen.yahoo.com/live/">Live</a></li>
+                <li><a href="https://screen.yahoo.com/">Screen</a></li>
+                <li><a href="https://mobile.yahoo.com/">Mobile</a></li>
+                <li>More</li><!-- drop down menu, not link-->
+            </ul>        
+        </div>
+        <div class="belowNav">
+            <span style="font-size:280%;">Yahoo!</span>
+              <input id="searchInput" type="text" />
+              <input id="searchButton" type="submit" value="Search Web" />
+            <span style="margin-left:150px; font-size:100%;">My Yahoo</span>
+            <span style="margin-left:50px; font-size:100%;">Mail</span>
+        </div>   
+    </div>
+
+    <div id="belowHeader" style="margin: 0; height:100%;">
+    
+        <div id="sidebar" style="float:left; ">
+            <ul>
+                <li><a href=""><img src="Pics/Koala.jpg" alt="koala"/>Mail</a></li>
+                <li><a href=""><img src="Pics/Chrysanthemum.jpg" alt="flower1"/>News</a></li>
+                <li><a href=""><img src="Pics/Lighthouse.jpg" alt="house"/>Sports</a></li>
+                <li><a href=""><img src="Pics/Jellyfish.jpg" alt="jelly"/>Finance</a></li>
+                <li><a href=""><img src="Pics/Hydrangeas.jpg" alt="flower2"/>Weather</a></li>
+                <li><a href=""><img src="Pics/Koala.jpg"  alt="koala"/>Autos</a></li>
+                <li><a href=""><img src="Pics/Chrysanthemum.jpg" alt="flower1"/>Screen</a></li>
+                <li><a href=""><img src="Pics/Lighthouse.jpg" alt="house"/>Dating</a></li>
+                <li><a href=""><img src="Pics/Jellyfish.jpg" alt="jelly"/>Shopping</a></li>
+                <li><a href=""><img src="Pics/Hydrangeas.jpg" alt="flower2"/>Makers</a></li>
+                <li><a href=""><img src="Pics/Koala.jpg"  alt="koala"/>Parenting</a></li>
+                <li><a href=""><img src="Pics/Chrysanthemum.jpg" alt="flower1"/>Health</a></li>
+                <li><a href=""><img src="Pics/Lighthouse.jpg" alt="house"/>Style</a></li>
+                <li><a href=""><img src="Pics/Jellyfish.jpg" alt="jelly"/>Beauty</a></li>
+                <li><a href=""><img src="Pics/Hydrangeas.jpg" alt="flower2"/>Politics</a></li>
+                <li><a href=""><img src="Pics/Koala.jpg"  alt="koala"/>Movies</a></li>
+                <li><a href=""><img src="Pics/Chrysanthemum.jpg" alt="flower1"/>Travel</a></li>
+                <li><a href=""><img src="Pics/Lighthouse.jpg" alt="house"/>Tech</a></li>
+                <li><a href=""><img src="Pics/Jellyfish.jpg" alt="jelly"/>Tv</a></li>
+            </ul> 
+            <br /><hr /><a href="#">Yahoo En Espanol</a><br /><hr />
+            <h4>Advertisement</h4>
+            <div class="advertisement">
+                <a href="#">
+                    <img src="Pics/Chrysanthemum.jpg" alt="flower1" /><br />
+                    <span>
+                    Flowers are everywhere except in your wife's hand. Stoke her rage 
+                    at forgetting your anniversary with Sappy Flower's 'Please forgive me' bouquette.
+                    </span>
+                </a>
+            </div>
+            <br />
+            <div class="advertisement">
+                <a href="#">
+                    <img src="Pics/Desert.jpg" alt="desert" /><br />
+                    <span>Visit the desert: it's big, hot, and rocky. Family fun all around!</span>
+                </a>
+            </div>
+        </div> <!-- sidebar -->
+
+        <div id="mainContent" style="float:left;" >
+            <div id="mainNewsImage" style="width:100%;" >
+                <img src="Pics/Desert.jpg" alt="desert" style="width:100%; height:350%;" />
+            </div>
+            <div id="newsContainer" style=" background-color:White; position:relative; top:-75px;">
+                <div id="mainNews_desc" style="height:auto; opacity: 0.5" >
+                    <h1 style="color: Aqua;">News Heading</h1>
+                    <p style="color: Gray;">A short topic sentence regarding the above heading.</p>
+                </div>
+                <div id="mainNews_list" style="width:100%; height: 100px; background-color: Beige;">
+                    <div class="news_list_button" style="float:left;">
+                        <h1> < </h1>
+                    </div>
+
+                    <div class="news_list_button" style="float:left;">
+                        <h1> > </h1>
+                    </div>
+                </div>
+
+            </div> <!-- news container -->
+        </div> <!-- main content -->
+        
+        
+        <!--<div id="subContentWrapper"> -->
+        <div id="subContent" style="float:left;clear:right;">     
+        
+         
+            <div id="trending" class="box" style="height:145px; margin-bottom: 15px;">
+              <div class="wrapper">
+                <span style="padding: 5p 0; font-size:1.2em;">---> Trending Now</span><br />
+                <div class="leftSide" style="width:49%; height:90px; float:left;">
+                    <ol style="list-style-type:decimal">
+                        <li><a href="#">Cats</a></li>
+                        <li><a href="#">Dogs</a></li>
+                        <li><a href="#">Fish</a></li>
+                        <li><a href="#">Snakes</a></li>
+                        <li><a href="#">Iguanas</a></li>
+                    </ol>
+                </div>
+                <div class="rightSide" style="width:49%; height:90px; float:left;">
+                    <ol style="list-style-type:decimal" start="6">
+                        <li><a href="#">Parrots</a></li>
+                        <li><a href="#">Geckos</a></li>
+                        <li><a href="#">Hamsters</a></li>
+                        <li><a href="#">Gerbils</a></li>
+                        <li><a href="#">Tigers</a></li>
+                    </ol>
+                </div>
+              </div>
+            </div>
+
+
+            <div id="topStories" class="box" style="height:310px; margin-bottom:10px;">
+              <div class="wrapper" style="width:97%">
+                <div class="top">                  
+                    <span style="font-size:1.2em;">Only On Yahoo</span><br />
+                  
+                    <div class="only_on_yahoo_item">
+                        <img src="Pics/Koala.jpg" alt="koala" style="float:left" />
+                        <a href="#">Why Koalas eat eucalpytis</a><br />
+                        <span>John Adams, Editor in Chief, Yahoo Beauty</span>
+                    </div>
+                    <div class="only_on_yahoo_item">
+                        <img src="Pics/Lighthouse.jpg" alt="house" />
+                        <a href="#">Best Lighthouses</a><br />
+                        <span>Will Simon, Reporter, Yahoo Dating</span>
+                    </div>
+                    <div class="only_on_yahoo_item">
+                        <img src="Pics/Jellyfish.jpg" alt="jelly" />
+                        <a href="#">Jellyfish as pets?</a><br />
+                        <span>Abe Johanson, News Anchor, Yahoo Finance</span>
+                    </div>
+                    
+                </div>
+                <div class="bottom" style="border-top:1px solid Gray;margin-top:5px">
+                    <span style="font-size:1.2em">Top Stories</span>
+                        <ul style="list-style-type:none;">
+                            <li><b>1</b><span><a href="#">3 kinds of pasta that could kill you.</a></span></li>
+                            <li><b>2</b><span><a href="#">Dangerous chemicals found on park slide.</a></span></li>
+                            <li><b>3</b><span><a href="#">How to cheat your taxes.</a></span></li>
+                            <li><b>4</b><span><a href="#">New species of ape discovered in Tibet, why you should be afraid.</a></span></li>
+                            <li><b>5</b><span><a href="#">The benefits of eating old VHS tapes, the new Atkins.</a></span></li>
+                        </ul>
+                </div>
+              </div>
+            </div>
+
+
+            <div id="weather" class="box" style="height:170px;margin: 10px 0;">
+              <div class="wrapper">
+                <div style="float:left;">
+                 <span style="font-size:1em;">Pleasant Hill</span><br />
+                 <span style="font-size:1.5em">70 </span>
+                 <span style="font-size:.8em">&deg F |</span>
+                 <span style="font-size:.8em">&deg C Sunny</span>
+                </div>
+                <img src="Pics/Sunny.jpg" alt="Jelly" style="width:45px; height:45px; float:right;" />
+              </div>
+              
+              <div id="weather_list" style="width:94%; height:90px; margin:5px 0 0 0;">
+                  <div>
+                    <img src="Pics/stormy.jpg" alt="stormy" /><br />
+                    <span>Today</span> <br /> <span>50&deg 20&deg</span>
+                  </div>
+                  <div style="border-left:1px solid Gray; border-right:1px solid Gray;">
+                    <img src="Pics/stormy.jpg" alt="stormy" /><br />
+                    <span>Tomorrow</span> <br /> <span>50&deg 20&deg</span>
+                  </div>
+                  <div>
+                    <img src="Pics/sunny.jpg" alt="sunny" /><br />
+                    <span>Friday</span> <br /> <span>50&deg 20&deg</span>
+                  </div>
+              </div>
+            </div> <!-- weather -->
+
+
+            <div id="finance" class="box" style="height:200px; margin: 10px 0;">
+                <div class="wrapper">
+                    <span style="font-size:1.2em">Quotes</span>
+                    <a> Yahoo finance</a> <br /> <br />
+                    <table id="finance_stocks">
+                      <tr>
+                        <td class="col1"><a>ESPN</a></td>
+                        <td class="col2">512.3</td>
+                        <td class="col3"><img src="Pics/greenArrowUp.png" alt="UP" /></td>
+                        <td class="col4" style="color:Green;">+1.5%</td>
+                      </tr>
+                      <tr>
+                        <td class="col1"><a>TNT</a></td>
+                        <td class="col2">12.3</td>
+                        <td class="col3"><img src="Pics/redArrowDown.png" alt="DOWN" /></td>
+                        <td class="col4" style="color:Red;">-15%</td>
+                      </tr>
+                      <tr>
+                        <td class="col1"><a>REDT</a></td>
+                        <td class="col2">1,223.1</td>
+                        <td class="col3"><img src="Pics/redArrowDown.png" alt="DOWN" /></td>
+                        <td class="col4" style="color:Red;">-23.3%</td>
+                      </tr>
+                    </table><br />
+                    <input type="text" style="width:95%" value="Enter compnay/ticker" />
+                </div>
+            </div>
+
+
+            <div id="sports" class="box" style="height:140px; margin: 10px 0;">
+                <div class="wrapper">
+                    <span style="font-size:1.2em">Scores</span>
+                    <a> Yahoo sports</a> <br />      
+                    <table id="sports_scores">
+                      <tr class="row1">
+                        <td class="col1 colEnd"> NFL </td>
+                        <td class="col2 colImg"><img src="Pics/cowboys.jpg" alt="teamA" /></td>
+                        <td class="col3 colTeam"> COW <br /> 9 </td>
+                        <td class="col4"><br />-</td>
+                        <td class="col5 colTeam"> SEA <br /> 22  </td>
+                        <td class="col2 colImg"><img src="Pics/seaHawks.jpg" alt="teamB" /></td>
+                        <td class="col7 colEnd"> 4Qt </td>
+                      </tr>
+                      <tr>
+                        <td class="col1 colEnd"> NHL </td>
+                        <td class="col2 colImg"><img src="Pics/bruins.jpg" alt="teamA" /></td>
+                        <td class="col3 colTeam"> BRU <br /> 5 </td>
+                        <td class="col4"><br />-</td>
+                        <td class="col5 colTeam"> MPL <br /> 4 </td>
+                        <td class="col6 colImg"><img src="Pics/mapleLeafs.png" alt="teamB" /></td>
+                        <td class="col7 colEnd"> 3Qt </td>
+                      </tr>                                      
+                    </table>  
+                    <input type="text" style="width:95%" value="Find Team" />
+                </div>
+            </div>
+            
+
+            <div id="footer">
+              <div class="wrapper">
+                <ul>
+                  <li><a href="#">About Yahoo</a></li>
+                  <li><a href="#">Terms</a></li>
+                  <li><a href="#">Privacy</a></li>
+                  <li><a href="#">Advertise</a></li>
+                  <li><a href="#">About our ads</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Help</a></li>
+                  <li><a href="#">Feedback</a></li>
+                </ul>               
+              </div>
+            </div>            
+        </div> <!-- sub content -->
+        <!--</div> <!-- sub content wrapper -->
+    </div> <!-- below header -->
+</form>
+</body>
+</html>
